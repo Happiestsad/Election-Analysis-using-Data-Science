@@ -1,0 +1,9 @@
+<svg width="100%" height="120" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,96L48,90.7C96,85,192,75,288,58.7C384,43,480,21,576,16C672,11,768,21,864,37.3C960,53,1056,75,1152,85.3C1248,96,1344,96,1392,96L1440,96V120H0Z" fill="url(#purpleGrad)"/>
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#7F3FBF"/>
+      <stop offset="100%" stop-color="#D25CF5"/>
+    </linearGradient>
+  </defs>
+</svg>
