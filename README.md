@@ -35,7 +35,8 @@ A data science project that uses machine learning and Streamlit to:
 - Analyze **patterns & trends**
 - Visualize model performance and feature importance
 
----
+<img src="./assets/dividers/wave-red.svg" width="100%" />
+
 
 ## 🧩 Features
 
@@ -63,5 +64,5 @@ Election-Analysis-using-Data-Science/
 │── feature_importance.png # Feature importance chart
 └── README.md
 ```
----
+<img src="./assets/dividers/wave-blue.svg" width="100%" />
 
