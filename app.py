@@ -24,54 +24,95 @@ def set_background(image_url):
     Set the background image of the Streamlit app using CSS
     """
     st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background-image: url("{image_url}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-        .block-container {{
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 1rem;
-        }}
-        h1, h2, h3 {{
-            color: #1E3A8A;
-        }}
-        .stButton>button {{
-            background-color: #1E3A8A;
-            color: white;
-            border-radius: 5px;
-            padding: 0.5rem 1rem;
-            font-weight: bold;
-        }}
-        .stButton>button:hover {{
-            background-color: #3B82F6;
-        }}
-        .stTabs [data-baseweb="tab-list"] {{
-            gap: 10px;
-        }}
-        .stTabs [data-baseweb="tab"] {{
-            height: 50px;
-            white-space: pre-wrap;
-            background-color: #E5E7EB;
-            border-radius: 5px 5px 0 0;
-            padding: 10px 20px;
-            font-weight: 600;
-        }}
-        .stTabs [aria-selected="true"] {{
-            background-color: #1E3A8A !important;
-            color: white !important;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    f"""
+    <style>
+
+    /* ---- HIDE STREAMLIT TOP BAR ---- */
+    header[data-testid="stHeader"] {{
+        display: none !important;
+    }}
+
+    /* ---- APP BACKGROUND ---- */
+    .stApp {{
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        background-attachment: fixed;
+    }}
+
+    /* ---- MAIN CONTAINER (GLASS CARD) ---- */
+    .block-container {{
+        background: rgba(30, 41, 59, 0.55);
+        backdrop-filter: blur(12px);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        color: #F8FAFC;
+    }}
+
+    /* ---- HEADINGS ---- */
+    h1, h2, h3, h4 {{
+        color: #38BDF8 !important;
+        font-weight: 700;
+    }}
+
+    /* ---- BUTTONS (BASE STYLE) ---- */
+    .stButton>button {{
+        background: #38BDF8;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 700;
+        transition: 0.25s ease;
+        border: none;
+    }}
+    .stButton>button:hover {{
+        background: #0EA5E9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+    }}
+
+    /* 💥 FORCE DARK TEXT ON ALL STREAMLIT BUTTONS 💥 */
+    button[kind="primary"],
+    button[kind="secondary"],
+    .stButton button,
+    .stButton>button,
+    button[data-baseweb="button"],
+    .stButton>button * {{
+        color: #0F172A !important;   /* dark navy text */
+        text-shadow: none !important;
+    }}
+
+    /* ---- TABS ---- */
+    .stTabs [data-baseweb="tab"] {{
+        background-color: rgba(255,255,255,0.1);
+        color: #F1F5F9;
+        border-radius: 8px 8px 0 0;
+        padding: 10px 20px;
+        font-weight: 600;
+    }}
+    .stTabs [aria-selected="true"] {{
+        background-color: #38BDF8 !important;
+        color: #0F172A !important;
+    }}
+
+    /* ---- METRICS ---- */
+    .st-emotion-cache-1wivap2 {{
+        background: rgba(255,255,255,0.12);
+        padding: 1rem;
+        border-radius: 12px;
+        color: #F8FAFC;
+    }}
+
+    /* ---- TEXT ---- */
+    p, li, ul {{
+        color: #E2E8F0 !important;
+    }}
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
 
 # Function to load models
 @st.cache_resource
@@ -284,21 +325,22 @@ def homepage():
     
     # Create info boxes
     st.markdown("""
-    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-        <div style="background-color: #DBEAFE; padding: 20px; border-radius: 10px; width: 30%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1E3A8A; margin-top: 0;">Predict</h3>
-            <p>Enter candidate details and get AI-powered predictions on their chances of winning.</p>
+    <div style="display: flex; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; width: 33%; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
+            <h3 style="color: #38BDF8; margin-top: 0;">Predict</h3>
+            <p style="color:#E5E7EB;">Enter candidate details and get AI-powered predictions on their chances of winning.</p>
         </div>
-        <div style="background-color: #E0E7FF; padding: 20px; border-radius: 10px; width: 30%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1E3A8A; margin-top: 0;">Analyze</h3>
-            <p>Explore factor importance and understand what drives election outcomes.</p>
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; width: 33%; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
+            <h3 style="color: #38BDF8; margin-top: 0;">Analyze</h3>
+            <p style="color:#E5E7EB;">Explore factor importance and understand what drives election outcomes.</p>
         </div>
-        <div style="background-color: #EDE9FE; padding: 20px; border-radius: 10px; width: 30%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1E3A8A; margin-top: 0;">Visualize</h3>
-            <p>See interactive charts and graphs to gain insights into election patterns.</p>
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; width: 33%; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
+            <h3 style="color: #38BDF8; margin-top: 0;">Visualize</h3>
+            <p style="color:#E5E7EB;">See interactive charts and graphs to gain insights into election patterns.</p>
         </div>
     </div>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
+
     
     # Create navigation buttons
     col1, col2, col3 = st.columns(3)
@@ -326,7 +368,7 @@ def homepage():
     
     with col1:
         st.markdown("""
-        <div style="background-color: #F3F4F6; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="color: #1E3A8A; margin-top: 0;">🏆 What Makes a Winning Candidate?</h4>
             <ul>
                 <li><strong>Financial Resources:</strong> Candidates with higher assets tend to have better chances.</li>
@@ -339,7 +381,7 @@ def homepage():
         
     with col2:
         st.markdown("""
-        <div style="background-color: #F3F4F6; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="color: #1E3A8A; margin-top: 0;">📊 Election Statistics</h4>
             <ul>
                 <li><strong>Voter Turnout Impact:</strong> Higher voter turnout often changes election dynamics.</li>
@@ -378,7 +420,7 @@ def prediction_page():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown('<div style="background-color: #DBEAFE; padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Personal Information</h4></div>', unsafe_allow_html=True)
+        st.markdown('<div style="background-color: rgba(15, 23, 42, 0.95); padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Personal Information</h4></div>', unsafe_allow_html=True)
         name = st.text_input("Candidate Name", "Satyapal Singh Baghel")
         gender = st.selectbox("Gender", ["MALE", "FEMALE"])
         age = st.number_input("Age", min_value=25, max_value=90, value=45)
@@ -387,7 +429,7 @@ def prediction_page():
         criminal_cases = st.number_input("Criminal Cases", min_value=0, value=0)
     
     with col2:
-        st.markdown('<div style="background-color: #E0E7FF; padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Political Information</h4></div>', unsafe_allow_html=True)
+        st.markdown('<div style="background-color:rgba(15, 23, 42, 0.95); padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Political Information</h4></div>', unsafe_allow_html=True)
         state = st.text_input("State", "UP")
         constituency = st.text_input("Constituency", "AGRA")
         party = st.selectbox("Party", list(parties_dict.keys()))
@@ -396,7 +438,7 @@ def prediction_page():
         total_votes = st.number_input("Expected Votes", min_value=1000, value=60000)
     
     with col3:
-        st.markdown('<div style="background-color: #EDE9FE; padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Financial Information</h4></div>', unsafe_allow_html=True)
+        st.markdown('<div style="background-color:rgba(15, 23, 42, 0.95); padding: 10px; border-radius: 5px;"><h4 style="margin-top: 0;">Financial Information</h4></div>', unsafe_allow_html=True)
         assets = st.number_input("Assets (₹)", min_value=0, value=10000000)
         liabilities = st.number_input("Liabilities (₹)", min_value=0, value=2000000)
         campaign_expense = st.number_input("Campaign Expense (₹)", min_value=0, value=5000000)
@@ -449,12 +491,12 @@ def prediction_page():
                 prediction_new, probability_new = predict_winner_new(input_data)
                 
                 # Display results
-                st.markdown('<div style="background-color: #F0F9FF; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"><h2 style="text-align: center; color: #1E3A8A;">Prediction Results</h2></div>', unsafe_allow_html=True)
+                st.markdown('<div style="background-color:Prediction Results; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"><h2 style="text-align: center; color: #1E3A8A;">Prediction Results</h2></div>', unsafe_allow_html=True)
                 
                 col1, col2 = st.columns(2)
                 
                 with col1:
-                    st.markdown('<div style="background-color: #DBEAFE; padding: 20px; border-radius: 10px;"><h3 style="margin-top: 0;">Standard Model Prediction</h3></div>', unsafe_allow_html=True)
+                    st.markdown('<div style="background-color:Prediction Results; padding: 20px; border-radius: 10px;"><h3 style="margin-top: 0;box-shadow: 0 10px 30px rgba(0,0,0,0.25); text-align: center;">Standard Model Prediction</h3></div>', unsafe_allow_html=True)
                     win_prob = probability[0][1] if len(probability[0]) > 1 else 0.5
                     
                     if prediction[0] == 1:
@@ -467,7 +509,7 @@ def prediction_page():
                     st.plotly_chart(create_gauge_chart(win_prob, "Win Probability (Standard Model)"), use_container_width=True)
                 
                 with col2:
-                    st.markdown('<div style="background-color: #E0E7FF; padding: 20px; border-radius: 10px;"><h3 style="margin-top: 0;">Optimized Model Prediction</h3></div>', unsafe_allow_html=True)
+                    st.markdown('<div style="background-color:Prediction Results; padding: 20px; border-radius: 10px;"><h3 style="margin-top: 0;box-shadow: 0 10px 30px rgba(0,0,0,0.25); text-align: center;">Optimized Model Prediction</h3></div>', unsafe_allow_html=True)
                     win_prob_new = probability_new[0][1] if len(probability_new[0]) > 1 else 0.5
                     
                     if prediction_new[0] == 1:
@@ -507,7 +549,7 @@ def prediction_page():
                     # Criminal cases analysis
                     if criminal_cases > 0:
                         st.markdown(f"""
-                        <div style="background-color: #FEE2E2; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                             <h4 style="margin-top: 0;">⚖️ Legal Considerations</h4>
                             <p><strong>{criminal_cases}</strong> criminal cases may negatively impact election chances.</p>
                             <p>Candidates with criminal cases have historically shown <strong>lower win rates</strong>.</p>
@@ -635,7 +677,7 @@ def analysis_page():
         
         with col1:
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">National Parties</h4>
                 <p>National parties like BJP and INC have shown consistently higher win rates across multiple elections.</p>
                 <p>The average win rate for national parties is <strong>49.0%</strong>.</p>
@@ -645,7 +687,7 @@ def analysis_page():
         
         with col2:
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">Regional Parties</h4>
                 <p>Regional parties show strong performance in their states but lower win rates nationally.</p>
                 <p>The average win rate for regional parties is <strong>32.3%</strong>.</p>
@@ -689,7 +731,7 @@ def analysis_page():
         with col1:
             # Gender analysis
             st.markdown("""
-            <div style="background-color: #DBEAFE; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">Gender Analysis</h4>
             </div>
             """, unsafe_allow_html=True)
@@ -722,7 +764,7 @@ def analysis_page():
             st.plotly_chart(win_rate_fig, use_container_width=True)
             
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <p>Despite making up a smaller percentage of candidates, female candidates have shown a slightly higher win rate.</p>
                 <p>This suggests that <strong>qualified female candidates</strong> may resonate well with voters.</p>
             </div>
@@ -731,7 +773,7 @@ def analysis_page():
         with col2:
             # Age analysis
             st.markdown("""
-            <div style="background-color: #E0E7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">Age Analysis</h4>
             </div>
             """, unsafe_allow_html=True)
@@ -764,7 +806,7 @@ def analysis_page():
             st.plotly_chart(win_rate_fig, use_container_width=True)
             
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <p>Candidates in the 46-55 age group show the highest win rate.</p>
                 <p>This suggests voters value <strong>experience combined with energy</strong> in their representatives.</p>
             </div>
@@ -829,7 +871,7 @@ def analysis_page():
         
         # Create asset ranges
         st.markdown("""
-        <div style="background-color: #F0F9FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="margin-top: 0;">Impact of Assets on Win Rate</h4>
         </div>
         """, unsafe_allow_html=True)
@@ -859,7 +901,7 @@ def analysis_page():
         
         with col1:
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">Assets vs Win Rate</h4>
                 <p>There is a clear positive correlation between candidate assets and win rate.</p>
                 <p>Candidates with assets over ₹10 crore have a win rate of <strong>52.5%</strong>.</p>
@@ -869,7 +911,7 @@ def analysis_page():
         
         with col2:
             st.markdown("""
-            <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+            <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
                 <h4 style="margin-top: 0;">Liabilities Impact</h4>
                 <p>High liabilities relative to assets can negatively impact win chances.</p>
                 <p>Candidates with liabilities exceeding 50% of assets show a win rate drop of <strong>12.3%</strong>.</p>
@@ -906,7 +948,7 @@ def analysis_page():
         st.plotly_chart(fig, use_container_width=True)
         
         st.markdown("""
-        <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="margin-top: 0;">Campaign Finance Insights</h4>
             <ul>
                 <li>Higher campaign spending correlates with better electoral performance.</li>
@@ -922,7 +964,7 @@ def analysis_page():
         
         # Create criminal cases analysis
         st.markdown("""
-        <div style="background-color: #F0F9FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="margin-top: 0;">Criminal Cases Analysis</h4>
         </div>
         """, unsafe_allow_html=True)
@@ -954,7 +996,7 @@ def analysis_page():
         # Multivariate analysis
         st.subheader("Multivariate Analysis")
         st.markdown("""
-        <div style="background-color: #F3F4F6; padding: 15px; border-radius: 5px;">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h4 style="margin-top: 0;">Factors Combinations</h4>
             <p>When multiple factors are analyzed together, some interesting patterns emerge:</p>
             <ul>
@@ -1021,10 +1063,10 @@ def about_page():
     
     # About section
     st.markdown("""
-    <div style="background-color: #F0F9FF; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
         <h2 style="color: #1E3A8A; margin-top: 0;">Election Winner Prediction System</h2>
-        <p>This application uses machine learning algorithms to predict the likelihood of a candidate winning an election based on various factors including demographic information, political affiliation, financial status, and more.</p>
-        <p>The system is designed to help political analysts, campaign managers, and candidates understand the factors that influence election outcomes and make data-driven decisions.</p>
+        <p>This application leverages advanced machine learning models to estimate a candidate’s likelihood of winning an election, based on key factors such as demographics, political affiliation, financial status, constituency details, and more.</p>
+        <p>Designed for political analysts, campaign teams, researchers, and candidates, the system provides clear insights into which factors drive election outcomes, helping users make informed, data-driven decisions with greater confidence.</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1036,7 +1078,7 @@ def about_page():
     
     with col1:
         st.markdown("""
-        <div style="background-color: #DBEAFE; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h3 style="color: #1E3A8A; margin-top: 0;">How It Works</h3>
             <p>The prediction system uses a Random Forest Classifier model trained on historical election data. The model considers various factors to predict the probability of a candidate winning an election.</p>
             <p>Key factors include:</p>
@@ -1053,7 +1095,7 @@ def about_page():
         
     with col2:
         st.markdown("""
-        <div style="background-color: #E0E7FF; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
             <h3 style="color: #1E3A8A; margin-top: 0;">Features</h3>
             <ul>
                 <li><strong>Prediction:</strong> Get AI-powered predictions on a candidate's chances of winning</li>
@@ -1062,6 +1104,10 @@ def about_page():
                 <li><strong>Recommendations:</strong> Receive suggestions for improving electoral prospects</li>
                 <li><strong>Comparison:</strong> Compare different candidates or scenarios</li>
                 <li><strong>Data Exploration:</strong> Explore trends and patterns in election data</li>
+                <li><strong>Historical Trends:</strong> Analyze past election results to identify performance patterns over time</li>
+                <li><strong>Demographics Insight:</strong>Examine how age, gender, caste, and region impact voting behavior</li>
+                <li><strong>Financial Impact:</strong>Study how assets, liabilities, and campaign expenses affect win rates</li>
+                <li><strong>Model Transparency:</strong>View feature importance and performance metrics to understand how predictions are made</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -1071,7 +1117,7 @@ def about_page():
     
     # Data and model section
     st.markdown("""
-    <div style="background-color: #F3F4F6; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
         <h3 style="color: #1E3A8A; margin-top: 0;">Data and Model</h3>
         <p>The prediction model is trained on a comprehensive dataset of past elections, including candidate profiles, constituency information, and election results.</p>
         <p><strong>Model Performance:</strong></p>
@@ -1090,10 +1136,12 @@ def about_page():
     
     # Disclaimer
     st.markdown("""
-    <div style="background-color: #FEF2F2; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h3 style="color: #B91C1C; margin-top: 0;">Disclaimer</h3>
-        <p>This application is for informational and educational purposes only. The predictions and analysis provided are based on historical data and statistical models, and should not be considered as guarantees of election outcomes.</p>
-        <p>Multiple factors influence election results, many of which cannot be captured in a predictive model. Users should use this information as one of many tools in their decision-making process.</p>
+    <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
+        <h3 style="color: #B91C1C; margin-top: 0;">⚠️Disclaimer</h3>
+        <ul>
+            <li>This application is intended solely for informational and educational use. All predictions and analyses are derived from historical data and statistical models, and should not be interpreted as guaranteed election outcomes.</li>
+            <li>Election results are influenced by a wide range of dynamic factors, many of which cannot be fully captured by any predictive model. Users are encouraged to treat these insights as supporting information, not definitive conclusions, and to use them alongside other reliable sources when making decisions.</li>
+        </ul>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1102,12 +1150,12 @@ def about_page():
     
     # Contact information
     st.markdown("""
-    <div style="background-color: #ECFDF5; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <h3 style="color: #047857; margin-top: 0;">Contact Information</h3>
-        <p>For questions, feedback, or support, please contact:</p>
-        <p><strong>Email:</strong> support@electionprediction.com</p>
+    <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(148, 163, 184, 0.5); padding: 20px; border-radius: 16px; box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);">
+        <h3 style="color: #047857; margin-top: 0;">📬 Contact Information</h3>
+        <p>For inquiries, feedback, or support, feel free to reach out:</p>
+        <p><strong>Email:</strong>harihshramm114@gmail.com</p>
         <p><strong>Phone:</strong> +91 9500453916</p>
-        <p><strong>Address:</strong> Election Analysis Center, New Delhi, India</p>
+        <p><strong>Address:</strong>Tamilnadu, India</p>
     </div>
     """, unsafe_allow_html=True)
 
