@@ -13,7 +13,7 @@ import base64
 
 # Page configuration
 st.set_page_config(
-    page_title="Election Winner Prediction and Analysis",
+    page_title="Election Winner Prediction & Analysis",
     page_icon="🗳️",
     layout="wide"
 )
