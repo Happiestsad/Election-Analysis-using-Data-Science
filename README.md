@@ -1,5 +1,5 @@
 <!-- Hero Section -->
-<div align="center" style="padding: 2.5rem 1rem; border-radius: 18px; background: linear-gradient(135deg, #1a202c, #2b6cb0, #ed64a6); color: #ffffff;">
+<div align="center">
 
   <h1 style="font-size: 2.6rem; margin-bottom: 0.4rem;">🗳️ Election Analysis using Data Science</h1>
   <p style="font-size: 1.1rem; opacity: 0.9; max-width: 650px;">
@@ -64,5 +64,78 @@ Election-Analysis-using-Data-Science/
 │── feature_importance.png # Feature importance chart
 └── README.md
 ```
-<img src="./assets/dividers/wave-blue.svg" width="100%" />
+---
 
+## 📦 Dependencies
+You’ll need:
+<ul>
+
+- Python 3.8+
+
+- pip (Python package manager)
+
+- All main libraries are listed in requirements.txt, including:
+
+- ` streamlit`
+
+- `pandas`
+
+- `numpy`
+
+- `scikit-learn`
+
+- `matplotlib` / `seaborn` (for plots)
+
+any other libs referenced in the app
+
+</ul>
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Happiestsad/Election-Analysis-using-Data-Science.git
+
+cd Election-Analysis-using-Data-Science
+```
+### 2️⃣ Create & Activate Virtual Environment
+```bash
+python -m venv venv
+venv\Scripts\activate
+
+```
+### 3️⃣ Install Dependencies
+```
+pip install -r requirements.txt
+```
+### 🚀 Run the App
+Make sure you’re in the project folder and (optionally) your virtual environment is activated.
+
+```
+streamlit run app.py
+```
+Streamlit will start a local server, typically at:
+
+``` 
+http://localhost:8501
+ ```
+
+<div align="center">
+🧾 License & Credits
+</div>
+
+This project is licensed under the Apache-2.0 License.
+See the [LICENSE](./LICENSE)
+ file for more details.
+
+Built with ❤️ by Happiestsad using Python, Machine Learning, and Streamlit.
+
+<div align="center">
+⭐ Like this project?
+
+If this repo helped you or you find it interesting,
+<strong>consider giving it a star ⭐ on GitHub</strong> — it really motivates further improvements!
+
+</div> 
