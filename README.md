@@ -122,6 +122,11 @@ Streamlit will start a local server, typically at:
 http://localhost:8501
  ```
 
+## 📸Screenshot
+<div style="display:flex; gap:10px; flex-wrap: wrap;">
+  <img src="assets/scrnot.jpg" alt="Home Screen" width="400"/>
+  <img src="assets/scrnot1.jpg" alt="Home Screen" width="400"/>
+  </div>
 
 ## 🧾 License & Credits
 
