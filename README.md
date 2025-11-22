@@ -1,7 +1,7 @@
 <!-- Hero Section -->
 <div align="center">
 
-[![Typing SVG](https://typingsvg.vercel.app/api/svg?width=1000&pause=1500&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Election+Analysis+using+Data+Science%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A40%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%2C%22fontWeight%22%3A%22bold%22%2C%22lineHeight%22%3A1.5%7D%2C%7B%22text%22%3A%22ML-powered+Election+Winner+Prediction%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A38%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%7D%2C%7B%22text%22%3A%22Interactive+Streamlit+Dashboard%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A40%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%7D%5D)]
+![Typing SVG](https://typingsvg.vercel.app/api/svg?width=1000&pause=1500&backgroundOpacity=0&border=false&lines=%5B%7B%22text%22%3A%22Election+Analysis+using+Data+Science%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A40%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%2C%22fontWeight%22%3A%22bold%22%2C%22lineHeight%22%3A1.5%7D%2C%7B%22text%22%3A%22ML-powered+Election+Winner+Prediction%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A38%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%7D%2C%7B%22text%22%3A%22Interactive+Streamlit+Dashboard%22%2C%22color%22%3A%22%230091ff%22%2C%22fontSize%22%3A40%2C%22typingSpeed%22%3A0.02%2C%22deleteSpeed%22%3A0.02%7D%5D)
   <p style="font-size: 1.1rem; opacity: 0.9; max-width: 650px;">
     A machine learning-powered platform to predict election results and visualize key electoral patterns with Streamlit.
   </p>
